@@ -36,3 +36,5 @@
 /home/umitkoc/Desktop/SeleniumSpor/WebApplication1/obj/Debug/net8.0/WebApplication1.pdb
 /home/umitkoc/Desktop/SeleniumSpor/WebApplication1/obj/Debug/net8.0/WebApplication1.genruntimeconfig.cache
 /home/umitkoc/Desktop/SeleniumSpor/WebApplication1/obj/Debug/net8.0/ref/WebApplication1.dll
+/home/umitkoc/Desktop/SeleniumSpor/WebApplication1/bin/Debug/net8.0/vercel.json
+/home/umitkoc/Desktop/SeleniumSpor/WebApplication1/obj/Debug/net8.0/WebApplication1.sourcelink.json

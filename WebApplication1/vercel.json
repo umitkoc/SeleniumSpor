@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "WebApplication1/*.csproj",
-      "use": "@vercel/dotnet"
+      "src": "Dockerfile",
+      "use": "@vercel/docker"
     }
   ],
   "routes": [
     {
-      "src": "/WebApplication1/(.*)",
-      "dest": "/WebApplication1"
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
