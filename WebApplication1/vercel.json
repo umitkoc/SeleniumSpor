@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "WebApplication1/*.csproj",
+      "use": "@vercel/dotnet"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/WebApplication1/(.*)",
+      "dest": "/WebApplication1"
+    }
+  ]
+}
