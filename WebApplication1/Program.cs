@@ -25,7 +25,7 @@ public static class Program
 
         app.UseAuthorization();
 
-        app.MapGet("/selenium-spor", ([FromBody]SeleniumSporRequest request) => SporSelenium.Run(request));
+        app.MapGet("/selenium-spor", ([FromBody]SeleniumSporRequest request) =>SporSelenium.Run(request));
 
         app.Run();
     }

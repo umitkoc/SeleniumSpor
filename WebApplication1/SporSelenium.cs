@@ -6,7 +6,8 @@ namespace WebApplication1;
 
 public abstract class SporSelenium
 {
-    public static List<Model> Run(SeleniumSporRequest request)
+   
+    public static List<Model> Run([FromBody]SeleniumSporRequest request)
     {
         var driverService = ChromeDriverService.CreateDefaultService();
         var chromeOptions = new ChromeOptions();
@@ -17,7 +18,7 @@ public abstract class SporSelenium
         chromeOptions.AddArguments("--no-sandbox");
         chromeOptions.AddArguments("--disable-dev-shm-usage");
         chromeOptions.PageLoadStrategy = PageLoadStrategy.Normal;
-        var driver = new ChromeDriver(driverService, new ChromeOptions());
+        var driver = new ChromeDriver(driverService, chromeOptions);
         driver.Url = "https://online.spor.istanbul/uyeseanssecim";
         var tcnum= driver.FindElement(By.Name("txtTCPasaport"));
         tcnum.SendKeys(request.tcnumber);
@@ -54,34 +55,39 @@ public abstract class SporSelenium
                         Time = group.FindElement(By.Id($"pageContent_rptList_ChildRepeater_{row}_lblSeansSaat_{col}")).Text
                     };
                     col++;
-                    if (form.State=="Yer Var")
+                    
+                 
+                    if(request.all)
+                    {
+                        model.Forms.Add(form);
+                    }
+                    else if (form.State=="Yer Var")
                     {
                         model.Forms.Add(form);
                     }
                 }
             }
-
             row++;
             if (model.Forms.Count > 0)
             {
                 models.Add(model);
             }
         }
+        driver.Close();
         return models;
     }
 
     public class Model
     {
-
-        public string? Id { get; set; } = new Guid().ToString();
         public string? Day { get; set; }
         public List<Form> Forms { get; set; } = [];
     }
 
     public class Form
     {
-        public string? State { get; init; }
         public string? Time { get; set; }
+        public string? State { get; init; }
+
     }
     
 }
