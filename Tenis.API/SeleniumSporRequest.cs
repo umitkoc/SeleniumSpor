@@ -1,4 +1,4 @@
-namespace WebApplication1;
+namespace Tenis.API;
 
 public class SeleniumSporRequest
 {
